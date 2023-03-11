@@ -18,37 +18,38 @@ body {
 
 @media (min-width: 320px) {
   body {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .accordion {
-    width: 300px;
+    width: 95vw;
   }
 }
 @media (min-width: 820px) {
   body {
-    font-size: 18px;
+    font-size: 1.1rem;
   }
   .accordion {
-    width: 500px;
+    width: 60vw;
   }
 }
 @media (min-width: 1920px) {
   body {
-    font-size: 22px;
+    font-size: 1.2rem;
   }
   .accordion {
-    width: 800px;
+    width: 50vw;
   }
 }
 
 @media (hover: hover) {
-  .accordion-item:hover .accordion-label::after {
+  .accordion-item:hover .accordion-plus {
     transform: rotate(45deg);
   }
 
   .accordion-item:hover .accordion-meme {
-    margin-top: 5px;
-    height: 220px;
+    margin-top: 0.4rem;
+    width: 50%;
+    height: 200px;
     opacity: 1;
   }
 
@@ -58,30 +59,26 @@ body {
 }
 
 .accordion-item {
-  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-  min-height: 25px;
   user-select: none;
   border-top: 1px solid #9ab3e4;
   margin-bottom: 10px;
-}
-
-.accordion-label::after {
-  content: '';
-  width: 20px;
-  height: 20px;
-  background-image: url('./assets/plusIcon.svg');
-  position: absolute;
-  right: 0;
-  top: 2.5px;
-  transition: var(--transition);
 }
 
 .accordion-item:active {
   color: red;
 }
 
-.accordion-label:has(.accordion-radio:checked)::after {
+.accordion-plus {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: var(--transition);
+}
+
+.accordion-label:has(.accordion-radio:checked) .accordion-plus {
   transform: rotate(45deg);
 }
 
@@ -91,18 +88,25 @@ body {
   flex-direction: column;
 }
 
+.accordion-label:has(.accordion-radio:checked) .accordion-meme {
+  margin-top: 0.4rem;
+  width: 50%;
+  height: 270px;
+  opacity: 1;
+}
+
+.accordion-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .accordion-radio {
   display: none;
 }
 
-.accordion-radio:checked + .accordion-meme {
-  margin-top: 5px;
-  height: 220px;
-  opacity: 1;
-}
-
 .accordion-meme {
-  width: 300px;
+  width: 50%;
   height: 0px;
   margin: auto;
   border-radius: 2px;

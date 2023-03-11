@@ -1,0 +1,115 @@
+:root {
+  --transition: all 0.1s
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  background-color: #e4edff;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media (min-width: 320px) {
+  body {
+    font-size: 1rem;
+  }
+  .accordion {
+    width: 95vw;
+  }
+}
+@media (min-width: 820px) {
+  body {
+    font-size: 1.1rem;
+  }
+  .accordion {
+    width: 60vw;
+  }
+}
+@media (min-width: 1920px) {
+  body {
+    font-size: 1.2rem;
+  }
+  .accordion {
+    width: 50vw;
+  }
+}
+
+@media (hover: hover) {
+  .accordion-item:hover .accordion-plus {
+    transform: rotate(45deg);
+  }
+
+  .accordion-item:hover .accordion-meme {
+    margin-top: 0.4rem;
+    width: 50%;
+    height: 200px;
+    opacity: 1;
+  }
+
+  .accordion-item:hover > .accordion-label {
+    cursor: pointer;
+  }
+}
+
+.accordion-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  user-select: none;
+  border-top: 1px solid #9ab3e4;
+  margin-bottom: 10px;
+}
+
+.accordion-item:active {
+  color: red;
+}
+
+.accordion-plus {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: var(--transition);
+}
+
+.accordion-label:has(.accordion-radio:checked) .accordion-plus {
+  transform: rotate(45deg);
+}
+
+.accordion-label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-label:has(.accordion-radio:checked) .accordion-meme {
+  margin-top: 0.4rem;
+  width: 50%;
+  height: 270px;
+  opacity: 1;
+}
+
+.accordion-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accordion-radio {
+  display: none;
+}
+
+.accordion-meme {
+  width: 50%;
+  height: 0px;
+  margin: auto;
+  border-radius: 2px;
+  opacity: 0;
+  transition: var(--transition);
+}

@@ -17,16 +17,25 @@ body {
 }
 
 @media (min-width: 320px) {
+  body {
+    font-size: 16px;
+  }
   .accordion {
     width: 300px;
   }
 }
 @media (min-width: 820px) {
+  body {
+    font-size: 18px;
+  }
   .accordion {
     width: 500px;
   }
 }
 @media (min-width: 1920px) {
+  body {
+    font-size: 22px;
+  }
   .accordion {
     width: 800px;
   }
@@ -36,16 +45,16 @@ body {
   .accordion-item:hover .accordion-label::after {
     transform: rotate(45deg);
   }
-  
-  .accordion-item:hover .accordion-meme {
-  margin-top: 5px;
-  height: 220px;
-  opacity: 1;
-  }
-}
 
-.accordion {
-  width: 500px;
+  .accordion-item:hover .accordion-meme {
+    margin-top: 5px;
+    height: 220px;
+    opacity: 1;
+  }
+
+  .accordion-item:hover > .accordion-label {
+    cursor: pointer;
+  }
 }
 
 .accordion-item {

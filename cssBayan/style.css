@@ -16,8 +16,32 @@ body {
   flex-direction: column;
 }
 
-.accordion-header {
+@media (min-width: 320px) {
+  .accordion {
+    width: 300px;
+  }
+}
+@media (min-width: 820px) {
+  .accordion {
+    width: 500px;
+  }
+}
+@media (min-width: 1920px) {
+  .accordion {
+    width: 800px;
+  }
+}
+
+@media (hover: hover) {
+  .accordion-item:hover .accordion-label::after {
+    transform: rotate(45deg);
+  }
   
+  .accordion-item:hover .accordion-meme {
+  margin-top: 5px;
+  height: 220px;
+  opacity: 1;
+  }
 }
 
 .accordion {
@@ -33,7 +57,7 @@ body {
   margin-bottom: 10px;
 }
 
-.accordion-item::after {
+.accordion-label::after {
   content: '';
   width: 20px;
   height: 20px;
@@ -48,8 +72,7 @@ body {
   color: red;
 }
 
-.accordion-radio:checked .accordion-item:hover::after,
-.accordion-item:hover::after {
+.accordion-label:has(.accordion-radio:checked)::after {
   transform: rotate(45deg);
 }
 
@@ -63,7 +86,6 @@ body {
   display: none;
 }
 
-.accordion-item:hover .accordion-meme,
 .accordion-radio:checked + .accordion-meme {
   margin-top: 5px;
   height: 220px;
@@ -73,7 +95,8 @@ body {
 .accordion-meme {
   width: 300px;
   height: 0px;
-  opacity: 0;
   margin: auto;
+  border-radius: 2px;
+  opacity: 0;
   transition: var(--transition);
 }
